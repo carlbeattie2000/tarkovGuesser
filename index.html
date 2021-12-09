@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/layout.css">
+    <link rel="stylesheet" href="./assets/css/customFonts.css">
+    <link rel="stylesheet" href="./assets/css/image_zoom.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+    <script src="./assets/js/image-zoom.js"></script>
+    <script src="./assets/js/globalFunctions.js"></script>
+    <title>Tarkov GeoGuesser</title>
+</head>
+<body>
+    <section class="container">
+        <div id="side-menu">
+            <div id="logo">
+                <img src="./assets/img/logo.png">
+            </div>
+            <ul>
+                <li id="nav-title">Locations</li>
+                <li><a href="/factory">Factory</a></li>
+                <li><a href="/factory">Customs</a></li>
+                <li><a href="/factory">Interchange</a></li>
+                <li><a href="/factory">Reserve</a></li>
+                <li><a href="/factory">Shoreline</a></li>
+            </ul>
+            <div class="img-magnifier-container">
+                <img id="mainImage" src="" width="600" height="400">
+            </div>
+        </div>
+        <div id="map"></div>
+    </section>
+
+    <script src="./assets/gameRounds/customs/customs_game.js"></script>
+    <script>
+
+        customsStart();
+
+        var map = L.map('map').setView([51.505, -0.09], 50);
+
+        L.tileLayer('./assets/maps/Factory_Map_0.5.4.823.jpg', {
+            maxZoom: 4,
+            id: 'mapbox/streets-v11',
+            tileSize: 1920,
+            zoomOffset: -1,
+        }).addTo(map);
+        
+        var magnifyGlassInit = false;
+
+        document.getElementById("mainImage").addEventListener("mouseover", () => {
+            if (!magnifyGlassInit) {
+                magnify("mainImage", 2);
+                magnifyGlassInit = true;
+            }
+        });
+    </script>
+</body>
+</html>
