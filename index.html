@@ -16,7 +16,6 @@
     integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
     crossorigin=""></script>
     <script src="./assets/js/image-zoom.js"></script>
-    <script src="./assets/js/globalFunctions.js"></script>
     <title>Tarkov GeoGuesser</title>
 </head>
 <body>
@@ -27,17 +26,21 @@
             </div>
             <ul>
                 <li id="nav-title">Locations</li>
-                <li><a href="/factory">Factory</a></li>
-                <li><a href="/factory">Customs</a></li>
-                <li><a href="/factory">Interchange</a></li>
-                <li><a href="/factory">Reserve</a></li>
-                <li><a href="/factory">Shoreline</a></li>
+                <select id="map-select">
+                    <option value="customs">Customs</option>
+                    <option value="factory" disabled>Factory</option>
+                    <option value="reserve" disabled>Reserve</option>
+                    <option value="interchange" disabled>Interchange</option>
+                    <option value="shoreline" disabled>Shoreline</option>
+                    <option value="labs" disabled>Labs</option>
+                </select>
+                <li><button id="start-game">Start</button></li>
             </ul>
             <div class="current-map">
                 <h1>Selected Map: <span id="current-map-set"></span></h1>
             </div>
             <div class="img-magnifier-container">
-                <img id="mainImage" src="" width="600" height="400">
+                <img id="mainImage" src="./assets/img/logo.png" width="600" height="500">
             </div>
             <div class="score-board">
                 <div class="row">
@@ -54,10 +57,8 @@
     </section>
 
     <script src="./assets/gameRounds/customs/customs_game.js"></script>
+    <script src="./assets/js/globalFunctions.js"></script>
     <script>
-
-        customsStart();
-
         var map = L.map('map').setView([51.505, -0.09], 50);
 
         L.tileLayer('./assets/maps/customs.png', {
@@ -66,15 +67,6 @@
             tileSize: 1920,
             zoomOffset: -1,
         }).addTo(map);
-        
-        var magnifyGlassInit = false;
-
-        document.getElementById("mainImage").addEventListener("mouseover", () => {
-            if (!magnifyGlassInit) {
-                magnify("mainImage", 2);
-                magnifyGlassInit = true;
-            }
-        });
     </script>
 </body>
 </html>

@@ -49,16 +49,28 @@ body {
     text-decoration: underline;
 }
 
-#side-menu ul li a {
+select {
+    color: #9a8866;
+    margin: 0.6rem;
+    background: #000;
+    border-color: #9a8866;
+    padding: 0.3rem;
+    border-radius: 0.5rem;
+}
+
+#side-menu ul li button {
     color: #9a8866;
     text-decoration: none;
     font-size: 1.6rem;
     padding: 0.3rem;
     border-radius: 0.5rem;
     transition: all 0.5s;
+    background: none;
+    border: 1px solid #9a8866;
+    transition: all 0.5s;
 }
 
-#side-menu ul li a:hover {
+#side-menu ul li button:hover {
     color: #000;
     background: #9a8866;
     border-radius: 0.5rem;
