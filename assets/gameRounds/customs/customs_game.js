@@ -1,3 +1,5 @@
+"use strict";
+
 // map data
 const PATH = "./assets/mapGuessLocations/customs/";
 
@@ -23,10 +25,13 @@ const mapData = [
 
 function customsStart() {
     let imageContainer = document.getElementById("mainImage");
+    let currentLocationSet = document.getElementById("current-map-set");
 
     const selectFirstImage = () => {
         // just use first item for now
-        imageContainer.src = mapData[getRandomInt(mapData.length)].img;
+        let selectedMapData = mapData[getRandomInt(mapData.length)];
+        imageContainer.src = selectedMapData.img;
+        currentLocationSet.textContent = selectedMapData.map_name;
     };
 
     selectFirstImage();

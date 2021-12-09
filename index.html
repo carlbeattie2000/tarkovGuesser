@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
     integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
     crossorigin=""/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
      <!-- Make sure you put this AFTER Leaflet's CSS -->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
     integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
@@ -32,8 +33,21 @@
                 <li><a href="/factory">Reserve</a></li>
                 <li><a href="/factory">Shoreline</a></li>
             </ul>
+            <div class="current-map">
+                <h1>Selected Map: <span id="current-map-set"></span></h1>
+            </div>
             <div class="img-magnifier-container">
                 <img id="mainImage" src="" width="600" height="400">
+            </div>
+            <div class="score-board">
+                <div class="row">
+                    <i class="material-icons icon-white">location_on</i>
+                    <h4>1/5</h4>
+                </div>
+                <div class="row">
+                    <i class="material-icons icon-white">sports_score</i>
+                    <h4>0</h4>
+                </div>
             </div>
         </div>
         <div id="map"></div>
@@ -46,7 +60,7 @@
 
         var map = L.map('map').setView([51.505, -0.09], 50);
 
-        L.tileLayer('./assets/maps/Factory_Map_0.5.4.823.jpg', {
+        L.tileLayer('./assets/maps/customs.png', {
             maxZoom: 4,
             id: 'mapbox/streets-v11',
             tileSize: 1920,
