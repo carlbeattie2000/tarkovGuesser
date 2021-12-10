@@ -1,4 +1,5 @@
 let map = L.map('map').setView([0, 0], 2);
+let marker;
 
 const setMapTiles = (tilesPath, maxZoom) => {
     map.off();
@@ -15,6 +16,16 @@ const setMapTiles = (tilesPath, maxZoom) => {
         tms: true,
         noWrap: true
     }).addTo(map);
+    
+
+    function onMapClick(e) {
+        if(marker) {
+            map.removeLayer(marker)
+        }
+        marker = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
+    }
+    
+    map.on('click', onMapClick);
 }
 
 // set default map to customs
