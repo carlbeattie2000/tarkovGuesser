@@ -59,18 +59,7 @@
         </div>
         <div id="map"></div>
     </section>
-
     <script src="./assets/gameRounds/customs/customs_game.js"></script>
     <script src="./assets/js/globalFunctions.js"></script>
-    <script>
-        var map = L.map('map').setView([51.505, -0.09], 50);
-
-        L.tileLayer('./assets/maps/customs.png', {
-            maxZoom: 4,
-            id: 'mapbox/streets-v11',
-            tileSize: 1920,
-            zoomOffset: -1,
-        }).addTo(map);
-    </script>
 </body>
 </html>
