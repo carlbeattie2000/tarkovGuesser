@@ -16,6 +16,9 @@ const setMapTiles = (tilesPath, maxZoom) => {
         tms: true,
         noWrap: true
     }).addTo(map);
+
+    // DEVELOPMENT ONLY
+    var popup = L.popup();
     
 
     function onMapClick(e) {
@@ -23,6 +26,29 @@ const setMapTiles = (tilesPath, maxZoom) => {
             map.removeLayer(marker)
         }
         marker = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
+
+        var latlngs = Array();
+
+        //Get latlng from first marker
+        latlngs.push(marker.getLatLng());
+
+        //Get latlng from first marker
+        latlngs.push(correctMarker.getLatLng());
+
+        //You can just keep adding markers
+
+        //From documentation http://leafletjs.com/reference.html#polyline
+        // create a red polyline from an arrays of LatLng points
+        var polyline = L.polyline(latlngs, {color: 'red'}).addTo(map);
+
+        // zoom the map to the polyline
+        map.fitBounds(polyline.getBounds());
+
+        // DEVELOPMENT ONLY
+        popup
+        .setLatLng(e.latlng)
+        .setContent("You clicked the map at " + e.latlng.toString())
+        .openOn(map);
     }
     
     map.on('click', onMapClick);
