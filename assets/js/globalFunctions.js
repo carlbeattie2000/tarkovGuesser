@@ -12,7 +12,7 @@ const setMapTiles = (tilesPath, maxZoom) => {
         maxZoom: maxZoom,
         tileSize: 256, // or 512  
         crs: L.CRS.Simple, // this is important for nongeo maps
-        attribution: 'ESO/INAF-VST/OmegaCAM',
+        attribution: '@carlbeattie2000',
         tms: true,
         noWrap: true
     }).addTo(map);
