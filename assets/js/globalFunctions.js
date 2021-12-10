@@ -33,9 +33,11 @@ document.getElementById("start-game").addEventListener("click", () => {
             break
         case "factory" :
             setMapTiles("factoryTiles", 2);
+            factoryStart();
             break
         case "reserve" :
             setMapTiles("reserveTiles", 4);
+            reserveStart();
             break
         case "interchange" :
             setMapTiles("interchangeTiles", 3);
