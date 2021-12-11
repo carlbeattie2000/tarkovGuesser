@@ -98,7 +98,7 @@ const setMapTiles = (tilesPath, maxZoom) => {
     L.tileLayer(`./assets/maps/${tilesPath}/{z}/{x}/{y}.png`, {
         minZoom: 1,
         maxZoom: maxZoom,
-        tileSize: 256, // or 512
+        tileSize: 256,
         crs: L.CRS.Simple, // this is important for nongeo maps
         attribution: "@carlbeattie2000",
         tms: true,

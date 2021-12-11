@@ -27,6 +27,11 @@ body {
     width: 30%;
     background: #000;
     border-right: 0.3rem solid #9a8866;
+    overflow-x: hidden;
+}
+
+#side-menu::-webkit-scrollbar {
+    display: none;
 }
 
 #logo {

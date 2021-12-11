@@ -27,6 +27,8 @@ const gameStart = () => {
     // will start the game, and load the selected map into a var
 };
 
+// once the user has selected there position we can't allow them to click anymore
+
 const nextRound = () => {
     if (currentRound >= roundLimit) {
         return; // will end game here

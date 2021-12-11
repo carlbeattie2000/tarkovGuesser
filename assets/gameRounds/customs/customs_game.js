@@ -36,6 +36,7 @@ function customsStart() {
     };
 
     function showCorrectLocation() {
+        // TODO: this needs to only show at the end of the round, but be stored so we can show it
         correctMarker = L.marker([selectedMapData.correct_position[0], selectedMapData.correct_position[1]]).addTo(map);
     }
 
