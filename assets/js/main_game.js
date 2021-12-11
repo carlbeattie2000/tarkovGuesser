@@ -75,13 +75,11 @@ const nextRound = () => {
     if (currentRound >= roundLimit) {
         return; // will end game here
     }
-    if (marker && polyline && correctMarker && nextRoundButton) {
-        map.removeLayer(marker);
-        map.removeLayer(polyline);
-        map.removeLayer(correctMarker);
-        nextRoundButton.remove();
-    }
 
+    removeRoundEndComponents();
+    removeMapMarkers();
+
+    // take object from end of currentRoundData array
     currentRoundData = mapData.pop();
 
     selectNextImage(selectedMap, currentRoundData.img);
@@ -92,11 +90,9 @@ const nextRound = () => {
 };
 
 const endRound = () => {
-    // will handle what happens when a player clicks to select a location, an the round ends
     guessSelected = true;
     createNextRoundButtonContainer();
     correctMarker = L.marker([currentRoundData.correct_position[0], currentRoundData.correct_position[1]]).addTo(map);
-    // show button to go to next round
 };
 
 // handle map changing at start of game

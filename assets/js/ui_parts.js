@@ -32,3 +32,13 @@ const createNextRoundButtonContainer = () => {
         nextRound();
     });
 };
+
+const removeRoundEndComponents = () => {
+    const nextRoundButton = document.getElementById("next_round_container");
+
+    if (nextRoundButton) {
+        nextRoundButton.remove();
+    }
+};
+
+// need to be able to remove the distance container once the round is other, currently causing a error
