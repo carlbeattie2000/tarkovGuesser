@@ -89,11 +89,11 @@ const onMapClick = (e) => {
     calcScore(distance);
     setScore();
 
-    // DEVELOPMENT ONLY
-    popup
-        .setLatLng(e.latlng)
-        .setContent("You clicked the map at " + e.latlng.toString())
-        .openOn(map);
+    // // DEVELOPMENT ONLY
+    // popup
+    //     .setLatLng(e.latlng)
+    //     .setContent("You clicked the map at " + e.latlng.toString())
+    //     .openOn(map);
 };
 
 const setMapTiles = (tilesPath, maxZoom) => {
