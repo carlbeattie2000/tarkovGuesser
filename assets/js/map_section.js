@@ -66,11 +66,8 @@ const drawLineBetweenTwoPoints = () => {
 
 // Basically the game loop once the user selects a map.
 const onMapClick = (e) => {
-    if (marker) {
-        map.removeLayer(marker);
-    }
-    if (polyline) {
-        map.removeLayer(polyline);
+    if (guessSelected) {
+        return;
     }
 
     endRound();

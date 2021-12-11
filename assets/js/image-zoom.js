@@ -1,4 +1,14 @@
+const glassPresent = () => {
+    const glassElement = document.getElementById("maginfyGlass");
+
+    if (glassElement) {
+        glassElement.remove();
+    }
+};
+
 function magnify(imgID, zoom) {
+    glassPresent();
+
     var img, glass, w, h, bw;
     img = document.getElementById(imgID);
 

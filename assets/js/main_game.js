@@ -1,14 +1,15 @@
 // calculate Score
 let score = 0,
-    currentRound = 1,
-    roundLimit = 5,
+    currentRound = 0,
+    roundLimit = 3,
     mapData = [],
     correctMarker,
     currentRoundData,
+    guessSelected,
     selectedMap;
 
 const calcScore = (distance) => {
-    if (distance > 0 && distance < 50) {
+    if (distance >= 0 && distance < 50) {
         score += 1000;
     } else if (distance > 50 && distance < 100) {
         score += 600;
@@ -67,18 +68,24 @@ const gameStart = () => {
     nextRound();
 };
 
-// once the user has selected there position we can't allow them to click anymore
-
 const nextRound = () => {
+    guessSelected = false;
+    const nextRoundButton = document.getElementById("next_round_container");
+
     if (currentRound >= roundLimit) {
         return; // will end game here
+    }
+    if (marker && polyline && correctMarker && nextRoundButton) {
+        map.removeLayer(marker);
+        map.removeLayer(polyline);
+        map.removeLayer(correctMarker);
+        nextRoundButton.remove();
     }
 
     currentRoundData = mapData.pop();
 
     selectNextImage(selectedMap, currentRoundData.img);
 
-    // run the functions the change to load the next image and points on the map
     currentRound++;
     // update the current round UI
     gameRound.textContent = currentRound + "/" + roundLimit;
@@ -86,6 +93,8 @@ const nextRound = () => {
 
 const endRound = () => {
     // will handle what happens when a player clicks to select a location, an the round ends
+    guessSelected = true;
+    createNextRoundButtonContainer();
     correctMarker = L.marker([currentRoundData.correct_position[0], currentRoundData.correct_position[1]]).addTo(map);
     // show button to go to next round
 };
