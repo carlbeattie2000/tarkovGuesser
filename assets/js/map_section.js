@@ -73,6 +73,8 @@ const onMapClick = (e) => {
         map.removeLayer(polyline);
     }
 
+    endRound();
+
     marker = L.marker([e.latlng.lat, e.latlng.lng]).addTo(map);
 
     drawLineBetweenTwoPoints();
@@ -110,36 +112,3 @@ const setMapTiles = (tilesPath, maxZoom) => {
 
     map.on("click", onMapClick);
 };
-
-// handle map changing
-document.getElementById("start-game").addEventListener("click", () => {
-    let glass = document.getElementById("maginfyGlass");
-    let mapSelectValue = document.getElementById("map-select").value;
-
-    switch (mapSelectValue) {
-        case "customs":
-            setMapTiles("customTiles", 4);
-            customsStart();
-            break;
-        case "factory":
-            setMapTiles("factoryTiles", 2);
-            factoryStart();
-            break;
-        case "reserve":
-            setMapTiles("reserveTiles", 4);
-            reserveStart();
-            break;
-        case "interchange":
-            setMapTiles("interchangeTiles", 3);
-            break;
-        default:
-            console.log("error");
-            break;
-    }
-
-    if (glass) {
-        glass.parentNode.removeChild(glass);
-    }
-
-    magnify("mainImage", 2);
-});
