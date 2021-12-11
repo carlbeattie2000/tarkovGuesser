@@ -31,7 +31,6 @@ const setMapTiles = (tilesPath, maxZoom) => {
 setMapTiles("customTiles", 6);
 
 // handle map changing
-
 document.getElementById("start-game").addEventListener("click", () => {
     let glass = document.getElementById("maginfyGlass");
     let mapSelectValue = document.getElementById("map-select").value;
@@ -63,7 +62,3 @@ document.getElementById("start-game").addEventListener("click", () => {
 
     magnify("mainImage", 2);
 });
-
-function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
-}
