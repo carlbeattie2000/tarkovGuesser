@@ -116,3 +116,9 @@ select {
     margin: 0.4rem 0;
     width: 40px;
 }
+
+.distance-ui {
+    display: flex;
+    justify-content: center;
+    color: #9a8866;
+}

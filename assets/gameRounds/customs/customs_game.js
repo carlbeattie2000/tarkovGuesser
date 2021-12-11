@@ -8,17 +8,17 @@ const customsMapData = [
     {
         map_name: "customs",
         img: PATH + "factory.jpg",
-        correct_position: [-80.604086, -104.992915],
+        correct_position: [-84.196507, 0.439453],
     },
     {
         map_name: "customs",
         img: PATH + "ru_gate_customs.jpg",
-        correct_position: [-80.604086, -104.992915],
+        correct_position: [-80.297927, -102.480469],
     },
     {
         map_name: "customs",
         img: PATH + "construction.png",
-        correct_position: [-80.604086, -104.992915],
+        correct_position: [-71.663663, 13.798828],
     },
 ];
 

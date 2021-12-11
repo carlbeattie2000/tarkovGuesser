@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- stylesheets-->
     <link rel="stylesheet" href="./assets/css/layout.css">
     <link rel="stylesheet" href="./assets/css/customFonts.css">
     <link rel="stylesheet" href="./assets/css/image_zoom.css">
@@ -11,15 +13,24 @@
     integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
     crossorigin=""/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-     <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <!-- \stylesheets-->
+
+    <!-- required scripts -->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
     integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
     crossorigin=""></script>
+    <!-- \required scripts -->
+
+    <!-- custom scripts -->
     <script src="./assets/js/image-zoom.js"></script>
+    <!-- \custom scripts -->
+
     <!-- game scripts -->
     <script src="./assets/gameRounds/customs/customs_game.js"></script>
     <script src="./assets/gameRounds/factory/factory_game.js"></script>
     <script src="./assets/gameRounds/reserve/reserve_game.js"></script>
+    <!-- \game scripts -->
+
     <title>Tarkov GeoGuesser</title>
 </head>
 <body>
@@ -49,12 +60,15 @@
             <div class="score-board">
                 <div class="row">
                     <i class="material-icons icon-white">location_on</i>
-                    <h4>1/5</h4>
+                    <h4 id="game_rounds">1/5</h4>
                 </div>
                 <div class="row">
                     <i class="material-icons icon-white">sports_score</i>
-                    <h4>0</h4>
+                    <h4 id="game_score">0</h4>
                 </div>
+            </div>
+            <div class="distance-ui" id="distance-container">
+                
             </div>
             <div class="github-link">
                 <h4>View source</h4>
@@ -63,6 +77,12 @@
         </div>
         <div id="map"></div>
     </section>
-    <script src="./assets/js/globalFunctions.js"></script>
+
+    <!-- other scripts -->
+    <script src="./assets/js/global.js"></script>
+    <script src="./assets/js/map_section.js"></script>
+    <script src="./assets/js/ui_parts.js"></script>
+    <script src="./assets/js/main_game.js"></script>
+    <!-- \other scripts -->
 </body>
 </html>
