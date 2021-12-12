@@ -1,3 +1,6 @@
+const mainImage = document.getElementById("mainImage");
+const hideMagnifyGlass = false;
+
 const glassPresent = () => {
     const glassElement = document.getElementById("maginfyGlass");
 

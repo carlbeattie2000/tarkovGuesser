@@ -10,6 +10,10 @@ body {
     height: 100%;
 }
 
+label {
+    color: #9a8866;
+}
+
 .container {
     display: flex;
     height: 100%;
