@@ -41,4 +41,15 @@ const removeRoundEndComponents = () => {
     }
 };
 
+const gameOverUI = (gameScore, totalScore) => {
+    return `
+        <div class="game_over_screen">
+            <h1>Stervyatnik -- <span class="player_name">GeoGuesser</span>(head, eyes)</h1>
+            <h1>You scored ${gameScore}/${totalScore}</h1>
+            <button onclick="location.reload();">Retry</button>
+            <button onclick="">Buy me a coffee</button>
+        </div>
+    `;
+};
+
 // need to be able to remove the distance container once the round is other, currently causing a error
