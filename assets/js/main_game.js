@@ -1,22 +1,21 @@
 // calculate Score
 let score = 0,
     currentRound = 0,
-    roundLimit = 3,
+    roundLimit = 10,
     mapData = [],
     correctMarker,
     currentRoundData,
     guessSelected,
-    selectedMap;
+    selectedMap,
+    totalScore = 500 * roundLimit;
 
 const calcScore = (distance) => {
-    if (distance >= 0 && distance < 50) {
-        score += 1000;
-    } else if (distance > 50 && distance < 100) {
-        score += 600;
-    } else if (distance > 100 && distance < 120) {
-        score += 100;
-    } else {
-        score = score;
+    if (distance >= 0 && distance < 20) {
+        score += 500;
+    } else if (distance > 20 && distance < 40) {
+        score += 200;
+    } else if (distance > 40 && distance < 80) {
+        score += 50;
     }
 };
 
@@ -55,7 +54,7 @@ const getRoundMapData = (map_name) => {
 
     localTempArray.sort(() => 0.5 - Math.random());
 
-    mapData = localTempArray.splice(0, 5);
+    mapData = localTempArray.splice(0, roundLimit);
 };
 
 const gameStart = () => {
@@ -73,6 +72,7 @@ const nextRound = () => {
     const nextRoundButton = document.getElementById("next_round_container");
 
     if (currentRound >= roundLimit) {
+        gameEnd();
         return; // will end game here
     }
 
@@ -93,6 +93,10 @@ const endRound = () => {
     guessSelected = true;
     createNextRoundButtonContainer();
     correctMarker = L.marker([currentRoundData.correct_position[0], currentRoundData.correct_position[1]]).addTo(map);
+};
+
+const gameEnd = () => {
+    document.body.innerHTML = gameOverUI(score, totalScore);
 };
 
 // handle map changing at start of game
