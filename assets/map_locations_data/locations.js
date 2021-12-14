@@ -1,3 +1,5 @@
+"use strict";
+
 // store our images / lat lng for each location by map name
 const mapLocations = [
     {

@@ -1,4 +1,5 @@
-// calculate Score
+"use strict";
+
 let score = 0,
     currentRound = 0,
     roundLimit = 10,
@@ -45,8 +46,7 @@ const getRoundMapData = (map_name) => {
     // we get and load the data for a map, and randomize the order of rounds
     let localTempArray = [];
 
-    for (data of mapLocations) {
-        console.log(data.map_name, map_name);
+    for (let data of mapLocations) {
         if (data.map_name == map_name) {
             localTempArray.push(data);
         }

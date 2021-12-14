@@ -1,3 +1,5 @@
+"use strict";
+
 const mainImage = document.getElementById("mainImage");
 const hideMagnifyGlass = false;
 
