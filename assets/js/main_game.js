@@ -10,12 +10,12 @@ let score = 0,
     totalScore = 500 * roundLimit;
 
 const calcScore = (distance) => {
-    if (distance >= 0 && distance < 20) {
+    if (distance >= 0 && distance < 10) {
         score += 500;
+    } else if (distance > 10 && distance < 20) {
+        score += 250;
     } else if (distance > 20 && distance < 40) {
-        score += 200;
-    } else if (distance > 40 && distance < 80) {
-        score += 50;
+        score += 125;
     }
 };
 
